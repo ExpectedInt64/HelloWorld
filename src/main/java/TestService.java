@@ -1,7 +1,7 @@
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-@Path("Test")
+@Path("test")
 public class TestService {
     @GET
     public String getTest(){
