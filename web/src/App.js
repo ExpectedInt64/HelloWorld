@@ -1,4 +1,7 @@
 import React from "react";
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,17 +15,20 @@ export default function App() {
   return (
       <Router>
         <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/topics">Topics</Link>
-            </li>
-          </ul>
+          <div style={{
+            position: 'absolute', left: '50%', top: '50%',
+            transform: 'translate(-50%, -50%)'
+          }}>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <NameForm/>
+              </Grid>
+              <Grid item xs={6}>
+              </Grid>
+            </Grid>
+
+          </div>
+
 
           <Switch>
             <Route path="/about">
@@ -40,6 +46,11 @@ export default function App() {
   );
 }
 
+function getName(name){
+  console.log("Test")
+  return <h1>{name}</h1>
+}
+
 function Home() {
   return <h2>Home</h2>;
 }
@@ -47,6 +58,41 @@ function Home() {
 function About() {
   return <h2>About</h2>;
 }
+
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+        <form onSubmit={this.handleSubmit}>
+          <center>
+            <h1 value={""}>Enter your name</h1>
+            <TextField label={"Name"} value={this.state.value} onChange={this.handleChange} onKeyUp={(e)=>{
+              if(e.key==="Enter"){
+                this.handleSubmit(e.key);
+              }
+            }}></TextField>
+          </center>
+        </form>
+    );
+  }
+}
+
 
 function Topics() {
   let match = useRouteMatch();
@@ -63,6 +109,9 @@ function Topics() {
             <Link to={`${match.url}/props-v-state`}>
               Props v. State
             </Link>
+          </li>
+          <li>
+
           </li>
         </ul>
 
