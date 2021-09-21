@@ -43,7 +43,7 @@ function App() {
                         let name = (document.getElementById("nameField").value)
                         history.push("/welcome/" + name);
                         Todos.addTodo({name: name});
-                        Kamels.fetchKamels();
+                        Kamels.addKamel(name,5);
                     }}>Halløj!</Button></center>
                 </Grid>
                 <Grid item xs={6}>

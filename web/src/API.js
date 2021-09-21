@@ -25,5 +25,25 @@ class KamelStore {
             .catch(error => {console.log('error', error)
                 this.Kamels=[{name:"Kan ikke hente data", age:""}];});
     }
+    async addKamel(name, age){
+        var myHeaders = new Headers();
+        const newKamel = {name, age}
+        console.log(newKamel);
+        var requestOptions = {
+            method: 'POST',
+            redirect: 'follow',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newKamel)
+        };
+        fetch(baseUrl+"rest/kamels", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                console.log(result)
+                this.fetchKamels()
+            })
+            .catch(error => console.log('error', error));
+    }
 }
 export const Kamels = new KamelStore();
