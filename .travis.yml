@@ -1,8 +1,5 @@
 matrix:
   include:
-    - language: java
-      jdk: openjdk11
-
     - language: node_js
       node_js:
         - 14
