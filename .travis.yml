@@ -12,5 +12,6 @@ matrix:
       env:
         CI: false
       script:
+        - cd web
         - npm run build
         - npm test
