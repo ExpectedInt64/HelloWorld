@@ -36,7 +36,7 @@ function App() {
                     </center>
                 </Grid>
                 <Grid item xs={12}>
-                    <center><TextField id={"nameField"} label={"Navn"}></TextField></center>
+                    <center><TextField id={"nameField"} inputProps={{ "data-testid": "name-input" }} label={"Navn"}></TextField></center>
                 </Grid>
                 <Grid item xs={12}>
                     <center><Button variant="contained" onClick={() => {
