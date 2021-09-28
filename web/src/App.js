@@ -39,7 +39,7 @@ function App() {
                     <center><TextField id={"nameField"} inputProps={{ "data-testid": "name-input" }} label={"Navn"}></TextField></center>
                 </Grid>
                 <Grid item xs={12}>
-                    <center><Button variant="contained" onClick={() => {
+                    <center><Button variant="contained" data-testid={"knap"} onClick={() => {
                         let name = (document.getElementById("nameField").value)
                         history.push("/welcome/" + name);
                         Todos.addTodo({name: name});

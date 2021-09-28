@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, userEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { HashRouter } from "react-router-dom";
 import App from './App';
 
@@ -16,7 +16,7 @@ test('Press add kamels button', async ()=>{
   render(<HashRouter><App /></HashRouter>);
   const nameInput = screen.getByTestId("name-input");
   fireEvent.change(nameInput, { target: { value: 'Mark' } });
-  fireEvent.click(screen.getByText('Halløj!'));
+  fireEvent.click(screen.getByTestId("knap"));
   const kamelName = await screen.getByText('Hej Mark',{exact: true});
   expect(kamelName).toBeInTheDocument();
 });
