@@ -9,9 +9,10 @@ matrix:
       cache:
         directories:
           - node_modules
+      before_install:
+        - cd web
       env:
         CI: false
       script:
-        - cd web
         - npm run build
         - npm test
