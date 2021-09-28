@@ -4,6 +4,13 @@ matrix:
       jdk: openjdk11
 
     - language: node_js
-      before_install: cd web
       node_js:
-        - node
+        - 14
+      cache:
+        directories:
+          - node_modules
+      env:
+        CI: false
+      script:
+        - npm run build
+        - npm test
