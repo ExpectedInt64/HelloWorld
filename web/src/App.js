@@ -21,6 +21,9 @@ import {
 function App() {
     const history = useHistory();
 
+    fetch("http://localhost:8080/rest/test/queryFood").then((res)=>console.log(res.status)).catch((error)=>{
+        console.log(error)
+    });
     return (
 
         <div>
