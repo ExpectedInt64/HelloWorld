@@ -1,0 +1,26 @@
+[
+  {
+    "course_id": 333456,
+    "students_id": 174881,
+    "year": 2021,
+    "grade": 12
+  },
+  {
+    "course_id": 333456,
+    "students_id": 174881,
+    "year": 2020,
+    "grade": 10
+  },
+  {
+    "course_id": 333456,
+    "students_id": 174881,
+    "year": 2019,
+    "grade": 7
+  },
+  {
+    "course_id": 333456,
+    "students_id": 180103,
+    "year": 2021,
+    "grade": 12
+  }
+]
